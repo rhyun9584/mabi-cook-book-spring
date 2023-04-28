@@ -1,0 +1,31 @@
+<nav th:fragment="navbarFragment" class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top border-bottom px-3" style="font-family: mabi">
+    <a class="navbar-brand font-weight-bold" href="/">마비노기 요리 도감</a>
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">도감</a>
+            </li>
+        </ul>
+<!--        <ul class="navbar-nav ml-auto justify-content-end">-->
+<!--            {% if g.user == None %}-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="{{ url_for('auth.signin') }}">로그인</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="{{ url_for('auth.signup') }}">회원가입</a>-->
+<!--                </li>-->
+<!--            {% else %}-->
+<!--                <li class="nav-item active">-->
+<!--                    <a class="nav-link" href="{{ url_for('auth.info') }}">{{ g.user.name }}</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="{{ url_for('auth.signout') }}">로그아웃</a>-->
+<!--                </li>-->
+<!--            {% endif %}-->
+<!--        </ul>-->
+    </div>
+</nav>

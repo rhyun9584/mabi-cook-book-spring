@@ -2,4 +2,4 @@
 게임 <마비노기>의 도감 컨텐츠 중 하나인 요리 수집 현황을 기록하는 사이트
 
 ## 기술 스택
-Java, Spring boot
+Java, Spring boot, thymeleaf

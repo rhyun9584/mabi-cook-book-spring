@@ -1,0 +1,115 @@
+main {
+    padding-top: 70px;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width:711px) {
+    .book{
+        /*  페이지 디자인 필요 */
+    }
+}
+
+#signin-form{
+    width: 100%;
+    max-width: 420px;
+    padding: 15px;
+    margin: auto;
+}
+
+.bg-collect0{
+    background-color: white;
+}
+.bg-collect1{
+    background-color: #CADFB8;
+}
+.bg-collect2{
+    background-color: #FBE7A3;
+}
+
+.cook-nav{
+    padding-right: 0;
+}
+
+.cook-content{
+    height: 76px;
+    padding: 0.5rem;
+    border: 1px solid lightgrey;
+    border-top: 0px;
+    display: flex;
+}
+
+.cook-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 59px;
+    /* top&bottom left&right*/
+    margin: 0 0.5rem;
+    background: radial-gradient(#606060, #404040);
+    color: white;
+}
+
+.cook-name{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+    padding: 0 1rem;
+    min-width: 280px;
+    border-right:1px solid lightgrey;
+}
+.cook-eng-name{
+    font-size: 12px;
+    font-weight: 200;
+    color: #6c757d;
+}
+.cook-kor-name{
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.cook-detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    margin: 0rem 1rem;
+    min-width: 250px;
+    margin-right: auto;
+}
+.cook-method{
+    font-size: 15px;
+    color: #6c757d;
+}
+
+.cook-collect-btn{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.modal-cook{
+    max-width: 650px;
+}
+.cook-filter{
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex{
+    flex: 1 0 21%;
+}
+
+.txt-hlight{
+    background: rgba(184, 203, 248, .7);
+}
+
+@font-face {
+    font-family: 'mabi';
+    src: url('../font/Mabinogi_Classic_OTF.otf') format('truetype');
+}
