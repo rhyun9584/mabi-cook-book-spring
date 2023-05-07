@@ -2,11 +2,11 @@ package com.j1001000.mabicookbook.service;
 
 import com.j1001000.mabicookbook.dao.SiteUserRepository;
 import com.j1001000.mabicookbook.domain.SiteUser;
+import com.j1001000.mabicookbook.vo.CustomUser;
 import com.j1001000.mabicookbook.vo.SiteUserRole;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -36,6 +36,6 @@ public class SiteUserSecurityService implements UserDetailsService {
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(SiteUserRole.USER.getValue()));
 
-        return new User(siteUser.getEmail(), siteUser.getPassword(), authorities);
+        return new CustomUser(siteUser.getName(), siteUser.getEmail(), siteUser.getPassword(), authorities);
     }
 }
