@@ -36,6 +36,6 @@ public class SiteUserSecurityService implements UserDetailsService {
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(SiteUserRole.USER.getValue()));
 
-        return new CustomUser(siteUser.getName(), siteUser.getEmail(), siteUser.getPassword(), authorities);
+        return new CustomUser(siteUser.getId(), siteUser.getName(), siteUser.getEmail(), siteUser.getPassword(), authorities);
     }
 }

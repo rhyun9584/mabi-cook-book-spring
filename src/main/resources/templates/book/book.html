@@ -1,0 +1,47 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container-lg book mx-1" style="font-family: mabi">
+  <nav class="navbar navbar-light border-bottom sticky-top cook-nav">
+    <span class="navbar-text">총 <span class="text-dark">[[ ${#lists.size(bookContentDtoList)} ]]</span>개</span>
+<!--    <button class="btn btn-outline-info ml-auto mr-3" id="filter-btn" data-toggle="modal" data-target="#cook-filter"><i class="bi bi-funnel"></i></button>-->
+<!--    <form class="form-inline" id="search-form" method="get" action="{{ url_for('book.main') }}">-->
+<!--      <div class="form-group mr-1">-->
+<!--        <select name="r" id="r" class="form-control">-->
+<!--          <option value="all">전체</option>-->
+<!--          <option value="name">요리 이름</option>-->
+<!--          <option value="ingredients">재료</option>-->
+<!--        </select>-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <input type="search" class="form-control mr-sm-2" name="q" value="{{ query or '' }}" placeholder="음식 / 재료 검색">-->
+<!--        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>-->
+<!--      </div>-->
+<!--    </form>-->
+  </nav>
+  <div id="cook">
+    <h2 th:if="${#lists.size(bookContentDtoList) == 0}" class="center">일치하는 결과가 없습니다.</h2>
+    <div th:each="bookContent : ${bookContentDtoList}">
+      <div th:id="|cook${bookContent.cookId}|" th:class="|cook-content bg-collect${bookContent.status}|">
+        <div class="cook-image">
+          <img th:src="|/static/image/cook/${bookContent.engName}.png|" onerror="this.src='/image/question_mark2.png';">
+        </div>
+        <div class="cook-name">
+          <span class="cook-eng-name">[[ ${bookContent.engName} ]]</span>
+          <span class="cook-kor-name">[[ ${bookContent.name} ]]</span>
+        </div>
+        <div class="cook-detail">
+          <span class="cook-method">[[ ${bookContent.method.korValue} ]]</span>
+          <span class="cook-ingredients">~재료~</span>
+        </div>
+        <div class="cook-collect-btn">
+          <button id="collect-btn" class="btn btn-outline-dark">️</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--  {% include 'book/filter_modal.html' %}-->
+</div>
+
+<!--<script src="/static/js/state.js"></script>-->
+<!--<script src="/static/js/filter.js"></script>-->
+<!--<script src="/static/js/search.js"></script>-->
+</html>
