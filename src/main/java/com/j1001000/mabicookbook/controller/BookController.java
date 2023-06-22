@@ -17,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/book")
 public class BookController {
-    public final BookService bookService;
+    private final BookService bookService;
 
     @GetMapping()
     @PreAuthorize("isAuthenticated()")
