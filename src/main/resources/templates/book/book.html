@@ -40,8 +40,9 @@
   </div>
 <!--  {% include 'book/filter_modal.html' %}-->
 </div>
-
-<!--<script src="/static/js/state.js"></script>-->
+<th:block layout:fragment="script">
+  <script th:src="@{/js/state.js}"></script>
+</th:block>
 <!--<script src="/static/js/filter.js"></script>-->
 <!--<script src="/static/js/search.js"></script>-->
 </html>

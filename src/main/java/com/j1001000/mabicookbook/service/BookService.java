@@ -5,11 +5,13 @@ import com.j1001000.mabicookbook.dao.CookRepository;
 import com.j1001000.mabicookbook.domain.Collect;
 import com.j1001000.mabicookbook.domain.Cook;
 import com.j1001000.mabicookbook.dto.BookContentDto;
+import com.j1001000.mabicookbook.vo.CollectId;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -40,5 +42,27 @@ public class BookService {
         }
 
         return bookContentDtoList;
+    }
+
+    /**
+     * 유저의 id 값과 수집 항목의 id 값으로 도감 상태 변경
+     */
+    public void changeStatus(Long userId, Integer cookId, Integer nextStatus) {
+        System.out.println("" + userId + cookId + nextStatus);
+
+        // 유저 id와 수집항목 id를 조합하여 status를 변경할 Collect row 찾기
+        Optional<Collect> _targetCollect = collectRepository.findById(new CollectId(userId, cookId));
+
+        // TODO: 해당하는 항목을 찾지 못했을때 404 오류 발생
+        if (_targetCollect.isEmpty()){
+            throw new RuntimeException();
+        }
+        Collect targetCollect = _targetCollect.get();
+
+        // status 상태 변경
+        targetCollect.setStatus(nextStatus);
+
+        // 변경사항 저장
+        this.collectRepository.save(targetCollect);
     }
 }

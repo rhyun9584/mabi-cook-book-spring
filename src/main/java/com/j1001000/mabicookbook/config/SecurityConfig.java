@@ -21,6 +21,10 @@ public class SecurityConfig {
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests().requestMatchers(
                 new AntPathRequestMatcher("/**")).permitAll()
+            // RestController에서 발생하는 403 오류 해결
+            .and()
+                .csrf().ignoringRequestMatchers(
+                        new AntPathRequestMatcher("/api/**"))
             // 스프링 시큐리티로 인한 h2 console 접근 불가 문제 해결
             .and()
                 .csrf().ignoringRequestMatchers(
