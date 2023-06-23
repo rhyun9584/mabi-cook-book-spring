@@ -5,6 +5,7 @@ import com.j1001000.mabicookbook.dao.CookRepository;
 import com.j1001000.mabicookbook.domain.Collect;
 import com.j1001000.mabicookbook.domain.Cook;
 import com.j1001000.mabicookbook.dto.BookContentDto;
+import com.j1001000.mabicookbook.exception.CollectNotFoundException;
 import com.j1001000.mabicookbook.vo.CollectId;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -53,9 +54,9 @@ public class BookService {
         // 유저 id와 수집항목 id를 조합하여 status를 변경할 Collect row 찾기
         Optional<Collect> _targetCollect = collectRepository.findById(new CollectId(userId, cookId));
 
-        // TODO: 해당하는 항목을 찾지 못했을때 404 오류 발생
+        // 해당하는 항목을 찾지 못했을때 404 오류 발생
         if (_targetCollect.isEmpty()){
-            throw new RuntimeException();
+            throw new CollectNotFoundException(userId, cookId);
         }
         Collect targetCollect = _targetCollect.get();
 
