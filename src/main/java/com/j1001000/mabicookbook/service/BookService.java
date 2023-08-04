@@ -49,8 +49,6 @@ public class BookService {
      * 유저의 id 값과 수집 항목의 id 값으로 도감 상태 변경
      */
     public void changeStatus(Long userId, Integer cookId, Integer nextStatus) {
-        System.out.println("" + userId + cookId + nextStatus);
-
         // 유저 id와 수집항목 id를 조합하여 status를 변경할 Collect row 찾기
         Optional<Collect> _targetCollect = collectRepository.findById(new CollectId(userId, cookId));
 
