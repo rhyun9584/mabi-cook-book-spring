@@ -1,6 +1,5 @@
 package com.j1001000.mabicookbook.domain;
 
-import com.j1001000.mabicookbook.vo.CollectId;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -12,8 +11,17 @@ import lombok.ToString;
 @ToString
 @Entity
 public class Collect {
-    @EmbeddedId
-    private CollectId id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_ID", nullable = false)
+    private SiteUser user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "COOK_ID", nullable = false)
+    private Cook cook;
 
     @Column(columnDefinition = "TINYINT")
     @NotNull
